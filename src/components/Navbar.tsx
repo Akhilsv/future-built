@@ -5,10 +5,11 @@ import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
-  { label: "Programs", href: "#programs" },
-  { label: "Industries", href: "#offerings" },
-  { label: "Consulting", href: "#approach" },
   { label: "About", href: "#about" },
+  { label: "Industries", href: "#offerings" },
+  { label: "Programs", href: "#programs" },
+  { label: "Consulting", href: "#approach" },
+
   { label: "Contact", href: "#contact" },
 ];
 

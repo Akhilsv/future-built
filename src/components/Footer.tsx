@@ -23,19 +23,29 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <img src={logo} alt="Core Hexis" className="h-10 w-auto mb-4 brightness-0 invert" />
+            <img
+              src={logo}
+              alt="Core Hexis"
+              className="h-10 w-auto mb-4 brightness-0 invert"
+            />
             <p className="text-sm text-primary-foreground/50 leading-relaxed font-body">
-              Building industry-ready talent through structured, outcome-driven capability development programs.
+              Building industry-ready talent through structured, outcome-driven
+              capability development programs.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">Quick Links</h4>
+            <h4 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm text-primary-foreground/50 hover:text-gold transition-colors font-body">
+                  <a
+                    href={link.href}
+                    className="text-sm text-primary-foreground/50 hover:text-gold transition-colors font-body"
+                  >
                     {link.label}
                   </a>
                 </li>
@@ -45,11 +55,15 @@ const Footer = () => {
 
           {/* Programs */}
           <div>
-            <h4 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">Programs</h4>
+            <h4 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
+              Programs
+            </h4>
             <ul className="space-y-3">
               {programLinks.map((label) => (
                 <li key={label}>
-                  <span className="text-sm text-primary-foreground/50 font-body">{label}</span>
+                  <span className="text-sm text-primary-foreground/50 font-body">
+                    {label}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -57,9 +71,11 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">Contact</h4>
+            <h4 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
+              Contact
+            </h4>
             <div className="space-y-3 text-sm text-primary-foreground/50 font-body">
-              <p>+91 998-063-1642</p>
+              <p>+91 9980631642</p>
               <p>info@corehexis.com</p>
               <p>Vijayanagara, Bangalore 560040</p>
               <p>www.corehexis.com</p>

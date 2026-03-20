@@ -3,13 +3,19 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center bg-hero overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center bg-hero overflow-hidden"
+    >
       {/* Subtle grid pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
-      }} />
-      
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      />
+
       {/* Gold accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-gold" />
 
@@ -22,7 +28,9 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/10 mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-            <span className="text-gold-light text-sm font-medium tracking-wide">Upskill · Reskill · Build</span>
+            <span className="text-gold-light text-sm font-medium tracking-wide">
+              Upskill · Reskill · Build
+            </span>
           </motion.div>
 
           <motion.h1
@@ -31,8 +39,10 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-display text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground leading-[1.1] mb-8"
           >
-            Building Industry-Ready Talent.{" "}
-            <span className="text-gradient-gold">Driving Real Performance.</span>
+            Empowering Professions with skills and{" "}
+            <span className="text-gradient-gold">
+              confidence to accelerate performance..
+            </span>
           </motion.h1>
 
           <motion.p
@@ -41,8 +51,9 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-lg md:text-xl text-primary-foreground/70 max-w-2xl mb-12 leading-relaxed font-body"
           >
-            We help organizations and professionals bridge the gap between knowledge and execution 
-            through structured, outcome-driven capability development programs.
+            We improve productivity, reduce rejection, and build
+            high-performance teams through structured capability development
+            programs
           </motion.p>
 
           <motion.div
@@ -56,14 +67,20 @@ const Hero = () => {
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-gradient-gold text-secondary-foreground font-semibold text-base hover:brightness-110 transition-all shadow-gold group"
             >
               Explore Programs
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </a>
             <a
               href="#contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border border-primary-foreground/20 text-primary-foreground font-medium text-base hover:bg-primary-foreground/5 transition-all group"
             >
               Book Consultation
-              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ChevronRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </a>
           </motion.div>
         </div>
@@ -82,8 +99,12 @@ const Hero = () => {
             { value: "500+", label: "Professionals Trained" },
           ].map((stat) => (
             <div key={stat.label}>
-              <div className="text-3xl md:text-4xl font-bold text-gradient-gold font-display">{stat.value}</div>
-              <div className="text-sm text-primary-foreground/50 mt-1 font-body">{stat.label}</div>
+              <div className="text-3xl md:text-4xl font-bold text-gradient-gold font-display">
+                {stat.value}
+              </div>
+              <div className="text-sm text-primary-foreground/50 mt-1 font-body">
+                {stat.label}
+              </div>
             </div>
           ))}
         </motion.div>
