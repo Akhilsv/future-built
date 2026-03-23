@@ -17,11 +17,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50" role="navigation" aria-label="Main navigation">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <a href="#hero" className="flex-shrink-0">
-            <img src={logo} alt="Core Hexis" className="h-12 w-auto" />
+          <a href="#hero" className="flex-shrink-0" aria-label="Core Hexis – Back to home">
+            <img src={logo} alt="Core Hexis logo" className="h-12 w-auto" width={48} height={48} />
           </a>
 
           {/* Desktop Nav */}
