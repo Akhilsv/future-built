@@ -68,7 +68,14 @@ const Navbar = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    setTimeout(() => {
+                      const el = document.querySelector(link.href);
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }, 300);
+                  }}
                   className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wide"
                 >
                   {link.label}
