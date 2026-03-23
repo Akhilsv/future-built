@@ -8,7 +8,7 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 bg-muted/50" ref={ref}>
+    <section id="about" className="py-24 bg-muted/50" ref={ref} aria-label="About Core Hexis">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Images */}
@@ -20,13 +20,19 @@ const About = () => {
           >
             <img
               src={teamImg}
-              alt="Core Hexis team"
+              alt="Core Hexis industry training team conducting a capability development workshop"
               className="rounded-2xl shadow-elevated w-full object-cover aspect-[4/3]"
+              loading="lazy"
+              width={600}
+              height={450}
             />
             <img
               src={classroomImg}
-              alt="Training session"
+              alt="Core Hexis hands-on corporate training session in a modern classroom"
               className="absolute -bottom-8 -right-4 lg:-right-8 w-48 md:w-56 rounded-xl shadow-elevated border-4 border-background object-cover aspect-square"
+              loading="lazy"
+              width={224}
+              height={224}
             />
           </motion.div>
 
@@ -49,11 +55,11 @@ const About = () => {
             
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" />
+                <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" aria-hidden="true" />
                 <p className="text-muted-foreground font-body"><strong className="text-foreground">Vision:</strong> To become a trusted capability partner for industries, institutions, and emerging professionals across India and beyond.</p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" />
+                <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" aria-hidden="true" />
                 <p className="text-muted-foreground font-body"><strong className="text-foreground">Mission:</strong> To deliver industry-aligned training that builds employability and develops confident, future-ready professionals.</p>
               </div>
             </div>

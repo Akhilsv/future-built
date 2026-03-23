@@ -50,7 +50,7 @@ const ProgramDomains = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="programs" className="py-24 bg-muted/50" ref={ref}>
+    <section id="programs" className="py-24 bg-muted/50" ref={ref} aria-label="Core Hexis training program domains">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,21 +67,22 @@ const ProgramDomains = () => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" role="list" aria-label="Eight training domains">
           {domains.map((domain, i) => (
-            <motion.div
+            <motion.article
               key={domain.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="group p-6 rounded-2xl bg-background border border-border hover:border-gold/30 hover:shadow-elevated transition-all duration-300 cursor-pointer"
+              role="listitem"
             >
-              <div className="w-11 h-11 rounded-lg bg-navy-deep/90 flex items-center justify-center mb-4 group-hover:bg-gold transition-colors duration-300">
+              <div className="w-11 h-11 rounded-lg bg-navy-deep/90 flex items-center justify-center mb-4 group-hover:bg-gold transition-colors duration-300" aria-hidden="true">
                 <domain.icon size={20} className="text-gold group-hover:text-secondary-foreground transition-colors duration-300" />
               </div>
               <h3 className="text-base font-semibold text-foreground mb-2 font-body">{domain.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed font-body">{domain.summary}</p>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

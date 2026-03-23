@@ -5,11 +5,14 @@ const Hero = () => {
   return (
     <section
       id="hero"
+      role="banner"
+      aria-label="Core Hexis – Industry capability development and corporate training"
       className="relative min-h-screen flex items-center bg-hero overflow-hidden"
     >
       {/* Subtle grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"
+        aria-hidden="true"
         style={{
           backgroundImage: `linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)`,
           backgroundSize: "60px 60px",
@@ -17,7 +20,7 @@ const Hero = () => {
       />
 
       {/* Gold accent line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-gold" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-gold" aria-hidden="true" />
 
       <div className="container mx-auto px-6 lg:px-12 pt-32 pb-20 relative z-10">
         <div className="max-w-4xl">
@@ -27,7 +30,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/10 mb-8"
           >
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-gold animate-pulse" aria-hidden="true" />
             <span className="text-gold-light text-sm font-medium tracking-wide">
               Upskill · Reskill · Build
             </span>
@@ -61,25 +64,31 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
+            role="group"
+            aria-label="Call to action"
           >
             <a
               href="#programs"
+              aria-label="Explore Core Hexis training programs"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-gradient-gold text-secondary-foreground font-semibold text-base hover:brightness-110 transition-all shadow-gold group"
             >
               Explore Programs
               <ArrowRight
                 size={18}
                 className="group-hover:translate-x-1 transition-transform"
+                aria-hidden="true"
               />
             </a>
             <a
               href="#contact"
+              aria-label="Book a consultation with Core Hexis"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border border-primary-foreground/20 text-primary-foreground font-medium text-base hover:bg-primary-foreground/5 transition-all group"
             >
               Book Consultation
               <ChevronRight
                 size={18}
                 className="group-hover:translate-x-1 transition-transform"
+                aria-hidden="true"
               />
             </a>
           </motion.div>
@@ -91,6 +100,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-primary-foreground/10 pt-10"
+          role="list"
+          aria-label="Core Hexis key statistics"
         >
           {[
             { value: "8+", label: "Industry Domains" },
@@ -98,12 +109,12 @@ const Hero = () => {
             { value: "100+", label: "Industry Experts" },
             { value: "500+", label: "Professionals Trained" },
           ].map((stat) => (
-            <div key={stat.label}>
-              <div className="text-3xl md:text-4xl font-bold text-gradient-gold font-display">
+            <div key={stat.label} role="listitem">
+              <div className="text-3xl md:text-4xl font-bold text-gradient-gold font-display" aria-hidden="true">
                 {stat.value}
               </div>
               <div className="text-sm text-primary-foreground/50 mt-1 font-body">
-                {stat.label}
+                <span className="sr-only">{stat.value} </span>{stat.label}
               </div>
             </div>
           ))}

@@ -22,7 +22,7 @@ const TrustSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 bg-muted/50" ref={ref}>
+    <section className="py-24 bg-muted/50" ref={ref} aria-label="Industries served and key outcomes delivered by Core Hexis">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,13 +44,14 @@ const TrustSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="text-lg font-semibold text-foreground mb-6 font-body">Industry Domains We Serve</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4" role="list" aria-label="Industry domains">
               {industries.map((ind) => (
                 <div
                   key={ind.label}
                   className="flex items-center gap-3 p-4 rounded-xl bg-background shadow-card hover:shadow-elevated transition-shadow"
+                  role="listitem"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center" aria-hidden="true">
                     <ind.icon size={20} className="text-gold" />
                   </div>
                   <span className="text-sm font-medium text-foreground font-body">{ind.label}</span>
@@ -66,14 +67,14 @@ const TrustSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h3 className="text-lg font-semibold text-foreground mb-6 font-body">Key Outcomes Delivered</h3>
-            <div className="space-y-4">
+            <ul className="space-y-4" aria-label="Training outcomes">
               {outcomes.map((outcome) => (
-                <div key={outcome} className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-gold mt-0.5 flex-shrink-0" />
+                <li key={outcome} className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
                   <span className="text-muted-foreground font-body">{outcome}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </motion.div>
         </div>
       </div>

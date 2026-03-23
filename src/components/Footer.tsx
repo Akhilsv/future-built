@@ -18,15 +18,18 @@ const programLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-navy-dark py-16">
+    <footer className="bg-navy-dark py-16" role="contentinfo">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <img
               src={logo}
-              alt="Core Hexis"
+              alt="Core Hexis logo – Industry capability development and consulting"
               className="h-10 w-auto mb-4 brightness-0 invert"
+              loading="lazy"
+              width={120}
+              height={40}
             />
             <p className="text-sm text-primary-foreground/50 leading-relaxed font-body">
               Building industry-ready talent through structured, outcome-driven
@@ -35,10 +38,10 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
+          <nav aria-label="Footer quick links">
+            <h3 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
               Quick Links
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
@@ -51,13 +54,13 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Programs */}
-          <div>
-            <h4 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
+          <nav aria-label="Footer program links">
+            <h3 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
               Programs
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {programLinks.map((label) => (
                 <li key={label}>
@@ -67,19 +70,19 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
+            <h3 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
               Contact
-            </h4>
-            <div className="space-y-3 text-sm text-primary-foreground/50 font-body">
+            </h3>
+            <address className="space-y-3 text-sm text-primary-foreground/50 font-body not-italic">
               <p>+91 9980631642</p>
               <p>info@corehexis.com</p>
               <p>Vijayanagara, Bangalore 560040</p>
               <p>www.corehexis.com</p>
-            </div>
+            </address>
           </div>
         </div>
 

@@ -34,8 +34,8 @@ const Approach = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="approach" className="py-24 bg-hero relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 opacity-[0.02]" style={{
+    <section id="approach" className="py-24 bg-hero relative overflow-hidden" ref={ref} aria-label="Core Hexis outcome-driven training methodology">
+      <div className="absolute inset-0 opacity-[0.02]" aria-hidden="true" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, hsl(0 0% 100%) 1px, transparent 0)`,
         backgroundSize: '40px 40px'
       }} />
@@ -56,22 +56,25 @@ const Approach = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" role="list" aria-label="Four-step training methodology">
           {steps.map((item, i) => (
-            <motion.div
+            <motion.article
               key={item.step}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="relative p-8 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 backdrop-blur-sm"
+              role="listitem"
             >
-              <span className="text-5xl font-bold text-gold/15 font-display absolute top-4 right-6">{item.step}</span>
-              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5">
+              <span className="text-5xl font-bold text-gold/15 font-display absolute top-4 right-6" aria-hidden="true">{item.step}</span>
+              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5" aria-hidden="true">
                 <item.icon size={22} className="text-gold" />
               </div>
-              <h3 className="text-lg font-semibold text-primary-foreground mb-3 font-body">{item.title}</h3>
+              <h3 className="text-lg font-semibold text-primary-foreground mb-3 font-body">
+                <span className="sr-only">Step {item.step}: </span>{item.title}
+              </h3>
               <p className="text-sm text-primary-foreground/60 leading-relaxed font-body">{item.description}</p>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
