@@ -64,6 +64,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            id="mobile-menu"
             className="lg:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="px-6 py-6 space-y-4">
