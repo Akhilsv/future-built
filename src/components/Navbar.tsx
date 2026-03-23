@@ -68,14 +68,17 @@ const Navbar = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
+                  onClick={() => {
                     setIsOpen(false);
+                    const id = link.href.replace("#", "");
                     setTimeout(() => {
-                      const el = document.querySelector(link.href);
-                      if (el) el.scrollIntoView({ behavior: "smooth" });
-                    }, 300);
-                  }}
+                      const el = document.getElementById(id);
+                      if (el) {
+                        const top = el.getBoundingClientRect().top + window.scrollY - 80;
+                        window.scrollTo({ top, behavior: "smooth" });
+                      }
+                    }, 350);
+                  }
                   className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wide"
                 >
                   {link.label}
