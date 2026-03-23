@@ -78,7 +78,7 @@ const Navbar = () => {
                         window.scrollTo({ top, behavior: "smooth" });
                       }
                     }, 350);
-                  }
+                  }}
                   className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wide"
                 >
                   {link.label}
