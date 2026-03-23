@@ -30,7 +30,7 @@ const WhyUs = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 bg-background" ref={ref}>
+    <section className="py-24 bg-background" ref={ref} aria-label="Why choose Core Hexis for capability development">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,21 +44,22 @@ const WhyUs = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" role="list" aria-label="Core Hexis differentiators">
           {reasons.map((item, i) => (
-            <motion.div
+            <motion.article
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="text-center p-8 rounded-2xl border border-border hover:border-gold/30 hover:shadow-elevated transition-all group"
+              role="listitem"
             >
-              <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/20 transition-colors">
+              <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/20 transition-colors" aria-hidden="true">
                 <item.icon size={26} className="text-gold" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-3 font-body">{item.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed font-body">{item.description}</p>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

@@ -15,6 +15,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <main>
       <Hero />
       <WhyUs />
       <About />
@@ -26,6 +27,7 @@ const Index = () => {
       <TrustSection />
       <CtaSection />
       <Contact />
+      </main>
       <Footer />
       <a
         href="https://wa.me/919980631642?text=Hello, I want to Enquiry about programs"
