@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import classroomImg from "@/assets/speaker.jpeg";
 
 const Hero = () => {
   return (
@@ -7,11 +8,25 @@ const Hero = () => {
       id="hero"
       role="banner"
       aria-label="Core Hexis – Industry capability development and corporate training"
-      className="relative min-h-screen flex items-center bg-hero overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
+      {/* Background Image + Gradient Overlay */}
+      <div
+        className="absolute inset-0 z-0"
+        aria-hidden="true"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
+            url(${classroomImg})
+          `,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+
       {/* Subtle grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.03] z-10"
         aria-hidden="true"
         style={{
           backgroundImage: `linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)`,
@@ -20,27 +35,34 @@ const Hero = () => {
       />
 
       {/* Gold accent line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-gold" aria-hidden="true" />
+      <div
+        className="absolute top-0 left-0 right-0 h-1 bg-gradient-gold z-20"
+        aria-hidden="true"
+      />
 
-      <div className="container mx-auto px-6 lg:px-12 pt-32 pb-20 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 pt-32 pb-20 relative z-30">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/10 mb-8"
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/10 mb-8 backdrop-blur-sm"
           >
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse" aria-hidden="true" />
+            <span
+              className="w-2 h-2 rounded-full bg-gold animate-pulse"
+              aria-hidden="true"
+            />
             <span className="text-gold-light text-sm font-medium tracking-wide">
               Upskill · Reskill · Build
             </span>
           </motion.div>
 
+          {/* H1 (LCP optimized - fast render) */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground leading-[1.1] mb-8"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="font-display text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.1] mb-8"
           >
             Empowering Professions with skills and{" "}
             <span className="text-gradient-gold">
@@ -49,10 +71,10 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg md:text-xl text-primary-foreground/70 max-w-2xl mb-12 leading-relaxed font-body"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl text-white/80 max-w-2xl mb-12 leading-relaxed font-body"
           >
             We improve productivity, reduce rejection, and build
             high-performance teams through structured capability development
@@ -60,9 +82,9 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
             role="group"
             aria-label="Call to action"
@@ -79,13 +101,14 @@ const Hero = () => {
                 aria-hidden="true"
               />
             </a>
+
             <a
               href="#contact"
               aria-label="Book a consultation with Core Hexis"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border border-primary-foreground/20 text-primary-foreground font-medium text-base hover:bg-primary-foreground/5 transition-all group"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-gradient-gold text-secondary-foreground font-semibold text-base hover:brightness-110 transition-all shadow-gold group"
             >
               Book Consultation
-              <ChevronRight
+              <ArrowRight
                 size={18}
                 className="group-hover:translate-x-1 transition-transform"
                 aria-hidden="true"
@@ -94,12 +117,12 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Stats bar */}
+        {/* Stats bar
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-primary-foreground/10 pt-10"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/20 pt-10"
           role="list"
           aria-label="Core Hexis key statistics"
         >
@@ -110,15 +133,15 @@ const Hero = () => {
             { value: "500+", label: "Professionals Trained" },
           ].map((stat) => (
             <div key={stat.label} role="listitem">
-              <div className="text-3xl md:text-4xl font-bold text-gradient-gold font-display" aria-hidden="true">
+              <div className="text-3xl md:text-4xl font-bold text-gradient-gold font-display">
                 {stat.value}
               </div>
-              <div className="text-sm text-primary-foreground/50 mt-1 font-body">
-                <span className="sr-only">{stat.value} </span>{stat.label}
+              <div className="text-sm text-white/60 mt-1 font-body">
+                {stat.label}
               </div>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

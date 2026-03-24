@@ -1,6 +1,17 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Wrench, Zap, Car, Building2, Monitor, Pencil, BarChart3, GraduationCap, Download } from "lucide-react";
+import {
+  Wrench,
+  Zap,
+  Car,
+  Building2,
+  Monitor,
+  Pencil,
+  BarChart3,
+  GraduationCap,
+  Download,
+} from "lucide-react";
+import brochure from "../assets/Brochure.pdf";
 
 const domains = [
   {
@@ -50,7 +61,12 @@ const ProgramDomains = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="programs" className="py-24 bg-muted/50" ref={ref} aria-label="Core Hexis training program domains">
+    <section
+      id="programs"
+      className="py-24 bg-muted/50"
+      ref={ref}
+      aria-label="Core Hexis training program domains"
+    >
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,16 +74,23 @@ const ProgramDomains = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm uppercase tracking-[0.2em] text-gold font-semibold mb-4 font-body">Program Domains</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-gold font-semibold mb-4 font-body">
+            Program Domains
+          </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
             Comprehensive Training Across Industries
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto font-body">
-            Explore our structured programs spanning 8 core engineering and technology domains.
+            Explore our structured programs spanning 8 core engineering and
+            technology domains.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" role="list" aria-label="Eight training domains">
+        <div
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          role="list"
+          aria-label="Eight training domains"
+        >
           {domains.map((domain, i) => (
             <motion.article
               key={domain.title}
@@ -77,11 +100,21 @@ const ProgramDomains = () => {
               className="group p-6 rounded-2xl bg-background border border-border hover:border-gold/30 hover:shadow-elevated transition-all duration-300 cursor-pointer"
               role="listitem"
             >
-              <div className="w-11 h-11 rounded-lg bg-navy-deep/90 flex items-center justify-center mb-4 group-hover:bg-gold transition-colors duration-300" aria-hidden="true">
-                <domain.icon size={20} className="text-gold group-hover:text-secondary-foreground transition-colors duration-300" />
+              <div
+                className="w-11 h-11 rounded-lg bg-navy-deep/90 flex items-center justify-center mb-4 group-hover:bg-gold transition-colors duration-300"
+                aria-hidden="true"
+              >
+                <domain.icon
+                  size={20}
+                  className="text-gold group-hover:text-secondary-foreground transition-colors duration-300"
+                />
               </div>
-              <h3 className="text-base font-semibold text-foreground mb-2 font-body">{domain.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-body">{domain.summary}</p>
+              <h3 className="text-base font-semibold text-foreground mb-2 font-body">
+                {domain.title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed font-body">
+                {domain.summary}
+              </p>
             </motion.article>
           ))}
         </div>
@@ -94,7 +127,8 @@ const ProgramDomains = () => {
           className="text-center mt-12"
         >
           <a
-            href="#contact"
+            href={brochure}
+            download="Core-hexis-Brochure.pdf"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-gradient-gold text-secondary-foreground font-semibold hover:brightness-110 transition-all shadow-gold group"
           >
             <Download size={18} aria-hidden="true" />

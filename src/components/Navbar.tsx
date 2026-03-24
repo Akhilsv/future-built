@@ -34,7 +34,11 @@ const Navbar = () => {
     >
       <div className="px-6 lg:px-10">
         <div className="flex items-center justify-between h-16">
-          <a href="#hero" className="flex-shrink-0" aria-label="Core Hexis – Back to home">
+          <a
+            href="#hero"
+            className="flex-shrink-0"
+            aria-label="Core Hexis – Back to home"
+          >
             <img
               src={logo}
               alt="Core Hexis logo"
@@ -50,7 +54,7 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className={`text-sm font-medium transition-colors tracking-wide uppercase ${
+                className={`text-sm font-bold transition-colors tracking-wide uppercase ${
                   scrolled
                     ? "text-primary-foreground/70 hover:text-gold-light"
                     : "text-muted-foreground hover:text-foreground"
@@ -59,12 +63,12 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <a
+            {/* <a
               href="#contact"
               className="inline-flex items-center px-5 py-2 rounded-lg bg-gradient-gold text-secondary-foreground text-sm font-semibold hover:brightness-110 transition-all shadow-gold"
             >
               Book a Consultation
-            </a>
+            </a> */}
           </div>
 
           {/* Mobile toggle */}
@@ -73,9 +77,15 @@ const Navbar = () => {
             className={`lg:hidden p-2 ${scrolled ? "text-primary-foreground" : "text-foreground"}`}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isOpen ? "Close navigation menu" : "Open navigation menu"
+            }
           >
-            {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+            {isOpen ? (
+              <X size={24} aria-hidden="true" />
+            ) : (
+              <Menu size={24} aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
@@ -103,7 +113,8 @@ const Navbar = () => {
                     setTimeout(() => {
                       const el = document.getElementById(id);
                       if (el) {
-                        const top = el.getBoundingClientRect().top + window.scrollY - 80;
+                        const top =
+                          el.getBoundingClientRect().top + window.scrollY - 80;
                         window.scrollTo({ top, behavior: "smooth" });
                       }
                     }, 350);
@@ -117,13 +128,13 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <a
+              {/* <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
                 className="inline-flex items-center px-6 py-2.5 rounded-lg bg-gradient-gold text-secondary-foreground text-sm font-semibold"
               >
                 Book a Consultation
-              </a>
+              </a> */}
             </div>
           </motion.div>
         )}

@@ -14,7 +14,12 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-muted/50" ref={ref} aria-label="Contact Core Hexis for training and consulting enquiries">
+    <section
+      id="contact"
+      className="py-24 bg-muted/50"
+      ref={ref}
+      aria-label="Contact Core Hexis for training and consulting enquiries"
+    >
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,84 +46,63 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-2 space-y-8 not-italic"
           >
-            <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+            <div className="flex items-center gap-4">
+              <div
+                className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0"
+                aria-hidden="true"
+              >
                 <Phone size={20} className="text-gold" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground mb-1 font-body">
+                {/* <h3 className="font-semibold text-foreground mb-1 font-body">
                   Phone
-                </h3>
+                </h3> */}
                 <a
                   href="tel:+919980631642"
-                  className="text-muted-foreground hover:text-gold transition-colors font-body"
+                  className="font-semibold  hover:text-gold transition-colors font-body"
                   aria-label="Call Core Hexis at +91 998-063-1642"
                 >
                   +91 998-063-1642
                 </a>
               </div>
             </div>
-            <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+            <div className="flex items-center gap-4">
+              <div
+                className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0"
+                aria-hidden="true"
+              >
                 <Mail size={20} className="text-gold" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground mb-1 font-body">
+                {/* <h3 className="font-semibold text-foreground mb-1 font-body">
                   Email
-                </h3>
+                </h3> */}
                 <a
                   href="mailto:info@corehexis.com"
-                  className="text-muted-foreground hover:text-gold transition-colors font-body"
+                  className="font-semibold hover:text-gold transition-colors font-body"
                   aria-label="Email Core Hexis at info@corehexis.com"
                 >
                   info@corehexis.com
                 </a>
               </div>
             </div>
-            <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+            <div className="flex items-center gap-4">
+              <div
+                className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0"
+                aria-hidden="true"
+              >
                 <MapPin size={20} className="text-gold" />
               </div>
 
-              <div className="flex-1">
-                <h3 className="font-semibold text-foreground mb-1 font-body">
+              <div>
+                {/* <h3 className="font-semibold text-foreground mb-1 font-body">
                   Address
-                </h3>
+                </h3> */}
 
-                <p className="text-muted-foreground font-body mb-3">
+                <a className="font-semibold  font-body mb-3">
                   #45, 1st Main, 1st Cross, M.H Circle,
                   <br />
                   Vijayanagara – Bangalore 560040
-                </p>
-
-                <a
-                  href="https://www.google.com/maps/search/1st+Main+1st+Cross+MH+Circle+Vijayanagara+Bangalore+560040/@12.9714457,77.5374233,16z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3D"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Get directions to Core Hexis office on Google Maps"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg 
-                 bg-gradient-to-r from-gold to-yellow-500 
-                 text-black font-medium text-sm 
-                 shadow-md hover:shadow-lg 
-                 hover:scale-[1.03] active:scale-[0.97] 
-                 transition-all duration-200 ease-in-out"
-                >
-                  Get Direction
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
                 </a>
               </div>
             </div>
@@ -133,12 +117,15 @@ const Contact = () => {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-background p-8 rounded-2xl shadow-card space-y-5"
+              className="bg-background p-8 rounded-2xl shadow-card space-y-5 max-w-lg mx-auto"
               aria-label="Contact enquiry form"
             >
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="contact-name" className="block text-sm font-medium text-foreground mb-2 font-body">
+                  <label
+                    htmlFor="contact-name"
+                    className="block text-sm font-medium text-foreground mb-2 font-body"
+                  >
                     Full Name
                   </label>
                   <input
@@ -151,7 +138,10 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-email" className="block text-sm font-medium text-foreground mb-2 font-body">
+                  <label
+                    htmlFor="contact-email"
+                    className="block text-sm font-medium text-foreground mb-2 font-body"
+                  >
                     Email
                   </label>
                   <input
@@ -165,7 +155,10 @@ const Contact = () => {
                 </div>
               </div>
               <div>
-                <label htmlFor="contact-phone" className="block text-sm font-medium text-foreground mb-2 font-body">
+                <label
+                  htmlFor="contact-phone"
+                  className="block text-sm font-medium text-foreground mb-2 font-body"
+                >
                   Phone Number
                 </label>
                 <input
@@ -177,7 +170,10 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label htmlFor="contact-message" className="block text-sm font-medium text-foreground mb-2 font-body">
+                <label
+                  htmlFor="contact-message"
+                  className="block text-sm font-medium text-foreground mb-2 font-body"
+                >
                   Message
                 </label>
                 <textarea
