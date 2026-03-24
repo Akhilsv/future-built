@@ -35,7 +35,6 @@ const TrustSection = () => {
       className="relative py-28 overflow-hidden"
       aria-label="Industries and outcomes"
     >
-      {/* 🔥 Background Glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/40 to-background" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-gold/10 blur-[120px] rounded-full" />
 
