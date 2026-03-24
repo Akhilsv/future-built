@@ -33,9 +33,6 @@ const Contact = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">
             Connect With Us
           </h2>
-          <p className="text-muted-foreground text-lg font-body">
-            Let's Start a Conversation
-          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
@@ -192,7 +189,15 @@ const Contact = () => {
                   "Message Sent ✓"
                 ) : (
                   <>
-                    <Send size={18} aria-hidden="true" /> Send Message
+                    <Send size={18} aria-hidden="true" />
+
+                    {/* Mobile */}
+                    <span className="sm:hidden">Send Message</span>
+
+                    {/* Desktop */}
+                    <span className="hidden sm:inline">
+                      Send Message | Let's Start a Conversation
+                    </span>
                   </>
                 )}
               </button>

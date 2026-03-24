@@ -21,13 +21,14 @@ const Index = () => {
         <WhyUs />
         <About />
         <Gallery />
+        <CtaSection />
         <CoreOfferings />
         <ProgramDomains />
         <Approach />
         {/* <IndustryPrograms /> */}
 
         <TrustSection />
-        <CtaSection />
+
         <Contact />
       </main>
       <Footer />
