@@ -51,8 +51,7 @@ const TrustSection = () => {
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
             Trusted by Industry Professionals
-            <br />
-            <span className="text-gold">& Organizations</span>
+            <span className="text-gold"> & Organizations</span>
           </h2>
         </motion.div>
 
