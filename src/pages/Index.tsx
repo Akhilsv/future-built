@@ -20,6 +20,7 @@ const Index = () => {
       <Hero />
       <WhyUs />
       <About />
+      <Gallery />
       <CoreOfferings />
       <ProgramDomains />
       <Approach />
