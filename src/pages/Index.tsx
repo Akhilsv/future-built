@@ -6,6 +6,7 @@ import ProgramDomains from "@/components/ProgramDomains";
 import Approach from "@/components/Approach";
 import IndustryPrograms from "@/components/IndustryPrograms";
 import About from "@/components/About";
+import Gallery from "@/components/Gallery";
 import WhyUs from "@/components/WhyUs";
 import CtaSection from "@/components/CtaSection";
 import Contact from "@/components/Contact";
