@@ -42,7 +42,7 @@ const offerings = [
   },
   {
     icon: Brain,
-    title: "Behavioral & Leadership Programs",
+    title: "Behavioural & Soft Skills Programs",
     description:
       "Communication, leadership, emotional intelligence, and performance culture building.",
   },

@@ -25,9 +25,12 @@ const Contact = () => {
           <p className="text-sm uppercase tracking-[0.2em] text-gold font-semibold mb-4 font-body">
             Get in Touch
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
-            Let's Start a Conversation
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">
+            Connect With Us
           </h2>
+          <p className="text-muted-foreground text-lg font-body">
+            Let's Start a Conversation
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 max-w-6xl mx-auto">

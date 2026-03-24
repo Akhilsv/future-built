@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Wrench, Zap, Car, Building2, Monitor, Pencil, BarChart3, GraduationCap } from "lucide-react";
+import { Wrench, Zap, Car, Building2, Monitor, Pencil, BarChart3, GraduationCap, Download } from "lucide-react";
 
 const domains = [
   {
@@ -85,6 +85,22 @@ const ProgramDomains = () => {
             </motion.article>
           ))}
         </div>
+
+        {/* Download Brochure Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center mt-12"
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-gradient-gold text-secondary-foreground font-semibold hover:brightness-110 transition-all shadow-gold group"
+          >
+            <Download size={18} aria-hidden="true" />
+            Download Brochure
+          </a>
+        </motion.div>
       </div>
     </section>
   );

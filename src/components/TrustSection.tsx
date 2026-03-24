@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Factory, Car, Monitor, Building2, CheckCircle2 } from "lucide-react";
+import { Factory, Car, Monitor, Building2, TrendingUp, ShieldCheck, Clock, BarChart3 } from "lucide-react";
 
 const industries = [
   { icon: Factory, label: "Manufacturing" },
@@ -11,10 +11,10 @@ const industries = [
 ];
 
 const outcomes = [
-  "Improved productivity across teams",
-  "Reduced defects & rejection rates",
-  "Faster onboarding of new hires",
-  "Measurable competency development",
+  { icon: TrendingUp, text: "Improved productivity across teams" },
+  { icon: ShieldCheck, text: "Reduced defects & rejection rates" },
+  { icon: Clock, text: "Faster onboarding of new hires" },
+  { icon: BarChart3, text: "Measurable competency development" },
 ];
 
 const TrustSection = () => {
@@ -36,7 +36,7 @@ const TrustSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Industries */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -45,17 +45,20 @@ const TrustSection = () => {
           >
             <h3 className="text-lg font-semibold text-foreground mb-6 font-body">Industry Domains We Serve</h3>
             <div className="grid grid-cols-2 gap-4" role="list" aria-label="Industry domains">
-              {industries.map((ind) => (
-                <div
+              {industries.map((ind, i) => (
+                <motion.div
                   key={ind.label}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-background shadow-card hover:shadow-elevated transition-shadow"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                  className="flex flex-col items-center gap-3 p-5 rounded-xl bg-background shadow-card hover:shadow-elevated transition-all group"
                   role="listitem"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center" aria-hidden="true">
-                    <ind.icon size={20} className="text-gold" />
+                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors" aria-hidden="true">
+                    <ind.icon size={24} className="text-gold" />
                   </div>
-                  <span className="text-sm font-medium text-foreground font-body">{ind.label}</span>
-                </div>
+                  <span className="text-sm font-semibold text-foreground font-body">{ind.label}</span>
+                </motion.div>
               ))}
             </div>
           </motion.div>
@@ -67,14 +70,23 @@ const TrustSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h3 className="text-lg font-semibold text-foreground mb-6 font-body">Key Outcomes Delivered</h3>
-            <ul className="space-y-4" aria-label="Training outcomes">
-              {outcomes.map((outcome) => (
-                <li key={outcome} className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
-                  <span className="text-muted-foreground font-body">{outcome}</span>
-                </li>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4" role="list" aria-label="Training outcomes">
+              {outcomes.map((outcome, i) => (
+                <motion.div
+                  key={outcome.text}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
+                  className="flex items-start gap-3 p-4 rounded-xl bg-background shadow-card hover:shadow-elevated transition-all group"
+                  role="listitem"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors" aria-hidden="true">
+                    <outcome.icon size={18} className="text-gold" />
+                  </div>
+                  <span className="text-sm text-muted-foreground font-body leading-relaxed mt-2">{outcome.text}</span>
+                </motion.div>
               ))}
-            </ul>
+            </div>
           </motion.div>
         </div>
       </div>

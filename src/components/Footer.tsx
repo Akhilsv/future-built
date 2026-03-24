@@ -14,6 +14,7 @@ const programLinks = [
   "IT & Digital Technology",
   "Construction & Infrastructure",
   "Training of Trainers",
+  "Soft Skills Programs",
 ];
 
 const Footer = () => {
