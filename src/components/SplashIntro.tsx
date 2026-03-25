@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/intro.png";
 
 const SplashIntro = ({ onComplete }: { onComplete: () => void }) => {
   const [visible, setVisible] = useState(true);
@@ -28,7 +28,7 @@ const SplashIntro = ({ onComplete }: { onComplete: () => void }) => {
           <motion.img
             src={logo}
             alt=""
-            className="h-16 md:h-20 brightness-0 invert"
+            className="h-46 md:h-52 brightness-0 invert"
             initial={{ opacity: 0, scale: 0.85, filter: "blur(8px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -36,7 +36,7 @@ const SplashIntro = ({ onComplete }: { onComplete: () => void }) => {
 
           {/* Tagline */}
           <motion.p
-            className="mt-5 text-sm md:text-base tracking-[0.3em] uppercase font-body text-gold-light/90"
+            className="mt-8 md:mt-10 text-base md:text-lg tracking-[0.3em] uppercase font-body text-gold-light/90"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
@@ -48,7 +48,7 @@ const SplashIntro = ({ onComplete }: { onComplete: () => void }) => {
           <motion.div
             className="mt-6 h-px bg-gold/40 rounded-full"
             initial={{ width: 0 }}
-            animate={{ width: 80 }}
+            animate={{ width: 260 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.9 }}
           />
         </motion.div>
