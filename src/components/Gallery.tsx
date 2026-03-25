@@ -16,16 +16,46 @@ import gallery9 from "@/assets/gallery-9.jpeg";
 import gallery10 from "@/assets/gallery-10.jpeg";
 
 const images = [
-  { src: gallery1, alt: "Core Hexis design thinking workshop with participants showcasing projects" },
-  { src: gallery2, alt: "Core Hexis corporate training session in modern classroom setting" },
-  { src: gallery3, alt: "Core Hexis industry experts delivering hands-on training program" },
-  { src: gallery4, alt: "Core Hexis industry readiness program with engineering students" },
-  { src: gallery5, alt: "Student presenting product design prototype at Core Hexis exhibition" },
-  { src: gallery6, alt: "Industry expert evaluating student project at Core Hexis event" },
-  { src: gallery7, alt: "Students participating in Core Hexis capability development program" },
-  { src: gallery8, alt: "Industry mentors discussing innovation at Core Hexis workshop" },
-  { src: gallery9, alt: "Core Hexis team demonstrating product prototype to industry leaders" },
-  { src: gallery10, alt: "Industry professionals networking at Core Hexis training event" },
+  {
+    src: gallery1,
+    alt: "Core Hexis design thinking workshop with participants showcasing projects",
+  },
+  {
+    src: gallery2,
+    alt: "Core Hexis corporate training session in modern classroom setting",
+  },
+  {
+    src: gallery3,
+    alt: "Core Hexis industry experts delivering hands-on training program",
+  },
+  {
+    src: gallery4,
+    alt: "Core Hexis industry readiness program with engineering students",
+  },
+  {
+    src: gallery5,
+    alt: "Student presenting product design prototype at Core Hexis exhibition",
+  },
+  {
+    src: gallery6,
+    alt: "Industry expert evaluating student project at Core Hexis event",
+  },
+  {
+    src: gallery7,
+    alt: "Students participating in Core Hexis capability development program",
+  },
+  {
+    src: gallery8,
+    alt: "Industry mentors discussing innovation at Core Hexis workshop",
+  },
+  {
+    src: gallery9,
+    alt: "Core Hexis team demonstrating product prototype to industry leaders",
+  },
+  {
+    src: gallery10,
+    alt: "Industry professionals networking at Core Hexis training event",
+  },
 ];
 
 const Gallery = () => {
@@ -35,7 +65,13 @@ const Gallery = () => {
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start", slidesToScroll: 1 },
-    [Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })]
+    [
+      Autoplay({
+        delay: 3500,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      }),
+    ],
   );
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
@@ -46,11 +82,17 @@ const Gallery = () => {
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
     emblaApi.on("select", onSelect);
     onSelect();
-    return () => { emblaApi.off("select", onSelect); };
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi]);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-background" aria-label="Gallery">
+    <section
+      ref={sectionRef}
+      className="py-20 bg-background"
+      aria-label="Gallery"
+    >
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,7 +101,7 @@ const Gallery = () => {
           className="text-center mb-12"
         >
           <p className="text-sm uppercase tracking-[0.2em] text-gold font-semibold mb-4 font-body">
-            Gallery
+            Our Stroies
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
             Moments That Define Excellence
@@ -119,7 +161,9 @@ const Gallery = () => {
                 key={i}
                 onClick={() => emblaApi?.scrollTo(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  i === selectedIndex ? "w-8 bg-gold" : "w-2 bg-muted-foreground/30"
+                  i === selectedIndex
+                    ? "w-8 bg-gold"
+                    : "w-2 bg-muted-foreground/30"
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
               />
