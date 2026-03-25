@@ -14,27 +14,44 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
 
+const SPLASH_KEY = "corehexis_splash_shown";
+
 const Index = () => {
+  const [showSplash, setShowSplash] = useState(() => {
+    if (typeof window === "undefined") return false;
+    // Respect reduced motion preference
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+    return !sessionStorage.getItem(SPLASH_KEY);
+  });
+
+  const handleSplashComplete = useCallback(() => {
+    sessionStorage.setItem(SPLASH_KEY, "1");
+    setShowSplash(false);
+  }, []);
+
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main>
-        <Hero />
-        <WhyUs />
-        <About />
-        <Gallery />
-        <CtaSection />
-        <CoreOfferings />
-        <ProgramDomains />
-        <Approach />
-        {/* <IndustryPrograms /> */}
+    <>
+      {showSplash && <SplashIntro onComplete={handleSplashComplete} />}
+      <div className="min-h-screen">
+        <Navbar />
+        <main>
+          <Hero />
+          <WhyUs />
+          <About />
+          <Gallery />
+          <CtaSection />
+          <CoreOfferings />
+          <ProgramDomains />
+          <Approach />
+          {/* <IndustryPrograms /> */}
 
-        <TrustSection />
+          <TrustSection />
 
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 };
 
