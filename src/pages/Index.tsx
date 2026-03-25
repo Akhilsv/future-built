@@ -1,5 +1,7 @@
+import { useState, useEffect, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import SplashIntro from "@/components/SplashIntro";
 import TrustSection from "@/components/TrustSection";
 import CoreOfferings from "@/components/CoreOfferings";
 import ProgramDomains from "@/components/ProgramDomains";
