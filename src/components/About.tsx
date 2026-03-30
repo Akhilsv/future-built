@@ -45,13 +45,13 @@ const About = () => {
             </p>
             
             <div className="space-y-4 mb-8">
-              <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" aria-hidden="true" />
-                <p className="text-muted-foreground font-body"><strong className="text-foreground">Vision:</strong> To become a trusted capability partner for industries, institutions, and emerging professionals across India and beyond.</p>
+              <div className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 items-baseline">
+                <strong className="text-foreground font-body whitespace-nowrap">Vision:</strong>
+                <p className="text-muted-foreground font-body leading-relaxed">To become a trusted capability partner for industries, institutions, and emerging professionals across India and beyond.</p>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" aria-hidden="true" />
-                <p className="text-muted-foreground font-body"><strong className="text-foreground">Mission:</strong> To deliver industry-aligned training that builds employability and develops confident, future-ready professionals.</p>
+              <div className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 items-baseline">
+                <strong className="text-foreground font-body whitespace-nowrap">Mission:</strong>
+                <p className="text-muted-foreground font-body leading-relaxed">To deliver industry-aligned training that builds employability and develops confident, future-ready professionals.</p>
               </div>
             </div>
           </motion.div>
