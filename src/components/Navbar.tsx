@@ -6,7 +6,7 @@ import logo from "@/assets/logo.png";
 const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
-  { label: "Industries", href: "#offerings" },
+  { label: "Capabilities", href: "#offerings" },
   { label: "Programs", href: "#programs" },
   { label: "Consulting", href: "#approach" },
   { label: "Contact", href: "#contact" },
@@ -112,9 +112,11 @@ const Navbar = () => {
                     e.preventDefault();
                     handleClick(link.href);
                   }}
-                  className={`text-sm font-bold uppercase transition ${
+                  className={`text-sm font-bold uppercase transition relative pb-1 ${
                     isActive
-                      ? "text-gold-light"
+                      ? scrolled
+                        ? "text-gold border-b-2 border-gold"
+                        : "text-gold border-b-2 border-gold"
                       : scrolled
                         ? "text-primary-foreground/70 hover:text-gold-light"
                         : "text-muted-foreground hover:text-foreground"

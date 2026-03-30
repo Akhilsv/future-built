@@ -34,6 +34,7 @@ const WhyUs = () => {
 
   return (
     <section
+      id="why-us"
       className="py-24"
       ref={ref}
       aria-label="Why choose Core Hexis for capability development"

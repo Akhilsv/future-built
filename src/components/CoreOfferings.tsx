@@ -12,36 +12,42 @@ import {
 const offerings = [
   {
     icon: GraduationCap,
+    abbr: "CTP",
     title: "Corporate Training Programs",
     description:
       "Structured, role-based training programs designed for engineering and manufacturing professionals.",
   },
   {
     icon: Cpu,
+    abbr: "I4DT",
     title: "Industry 4.0 & Digital Transformation",
     description:
       "Smart factory, IoT, digital twin, and data-driven manufacturing programs for the future.",
   },
   {
     icon: Briefcase,
+    abbr: "C&CD",
     title: "Consulting & Capability Development",
     description:
       "End-to-end consulting to build sustainable skill systems and performance frameworks.",
   },
   {
     icon: Users,
+    abbr: "TOT",
     title: "Training of Trainers (ToT)",
     description:
       "Equip your internal trainers with world-class facilitation and instructional design skills.",
   },
   {
     icon: Rocket,
+    abbr: "IRP",
     title: "Industry Readiness Programs",
     description:
       "Bridge the gap between academic knowledge and real-world industry performance.",
   },
   {
     icon: Brain,
+    abbr: "B&SSP",
     title: "Behavioural & Soft Skills Programs",
     description:
       "Communication, leadership, emotional intelligence, and performance culture building.",
@@ -73,26 +79,28 @@ const CoreOfferings = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" role="list" aria-label="Training services offered by Core Hexis">
+        <div className="flex flex-col gap-4" role="list" aria-label="Training services offered by Core Hexis">
           {offerings.map((item, i) => (
             <motion.article
               key={item.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative p-8 rounded-2xl bg-background border border-border hover:border-gold/30 hover:shadow-elevated transition-all duration-300"
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="group flex items-center gap-5 p-5 md:p-6 rounded-xl bg-background border border-border hover:border-gold/30 hover:shadow-elevated transition-all duration-300"
               role="listitem"
             >
-              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors" aria-hidden="true">
-                <item.icon size={24} className="text-gold" />
+              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors" aria-hidden="true">
+                <item.icon size={22} className="text-gold" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-3 font-body">
-                {item.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-body">
-                {item.description}
-              </p>
-              <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" aria-hidden="true" />
+              <div className="flex-1 min-w-0">
+                <h3 className="text-base md:text-lg font-semibold text-foreground font-body">
+                  {item.title}
+                  <span className="ml-2 text-xs font-medium text-gold/70">({item.abbr})</span>
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed font-body mt-1">
+                  {item.description}
+                </p>
+              </div>
             </motion.article>
           ))}
         </div>
