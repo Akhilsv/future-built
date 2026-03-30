@@ -26,14 +26,6 @@ const About = () => {
               width={600}
               height={450}
             />
-            <img
-              src={classroomImg}
-              alt="Core Hexis hands-on corporate training session in a modern classroom"
-              className="absolute -bottom-8 -right-4 lg:-right-8 w-48 md:w-56 rounded-xl shadow-elevated border-4 border-background object-cover aspect-square"
-              loading="lazy"
-              width={224}
-              height={224}
-            />
           </motion.div>
 
           {/* Content */}
