@@ -1,7 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import teamImg from "@/assets/team-group.jpeg";
-import classroomImg from "@/assets/classroom.jpeg";
 
 const About = () => {
   const ref = useRef(null);
