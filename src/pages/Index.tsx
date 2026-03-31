@@ -38,7 +38,6 @@ const Index = () => {
           <Hero />
           <WhyUs />
           <About />
-          <Gallery />
 
           <CoreOfferings />
           <ProgramDomains />
@@ -46,6 +45,7 @@ const Index = () => {
           {/* <IndustryPrograms /> */}
 
           {/* <TrustSection /> */}
+          <Gallery />
           <CtaSection />
           <Contact />
         </main>

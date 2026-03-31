@@ -50,7 +50,7 @@ const About = () => {
             <p className="text-muted-foreground mb-6 leading-relaxed font-body">
               Core Hexis is a highest industry experienced team for training and
               capability development, committed to bridging the gap between
-              education and real-world performance. We believe skill is not
+              education and real-world performance. We believe, skill is not
               taught — it is built through structured exposure, guided practice,
               and real industry integration.
             </p>
@@ -62,9 +62,10 @@ const About = () => {
                   aria-hidden="true"
                 />
                 <p className="text-muted-foreground font-body">
-                  <strong className="text-foreground">Vision:</strong> To become
-                  a trusted capability partner for industries, institutions, and
-                  emerging professionals across India and beyond.
+                  <strong className="text-foreground"> Vision:</strong> To
+                  become a trusted capability partner for industries,
+                  institutions, and emerging professionals across India and
+                  beyond.
                 </p>
               </div>
               <div className="flex items-start gap-3">

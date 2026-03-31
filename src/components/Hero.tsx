@@ -1,28 +1,62 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import classroomImg from "@/assets/speaker.jpeg";
+import { useEffect, useState } from "react";
+
+import bg1 from "@/assets/students.jpeg";
+import bg2 from "@/assets/seminar.jpeg";
+import bg3 from "@/assets/meeting.jpeg";
+
+const backgrounds = [bg1, bg2, bg3];
 
 const Hero = () => {
+  const [currentBg, setCurrentBg] = useState(0);
+
+  useEffect(() => {
+    // preload images to avoid flash
+    backgrounds.forEach((img) => {
+      const image = new Image();
+      image.src = img;
+    });
+
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % backgrounds.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="hero"
       role="banner"
       aria-label="Core Hexis – Industry capability development and corporate training"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden bg-black"
     >
-      {/* Background Image + Gradient Overlay */}
-      <div
-        className="absolute inset-0 z-0"
-        aria-hidden="true"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
-            url(${classroomImg})
-          `,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+      {/* Background Image Slider */}
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={currentBg}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(0,0,0,0.78), rgba(0,0,0,0.45)),
+                url(${backgrounds[currentBg]})
+              `,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        </AnimatePresence>
+      </div>
+
+      {/* Extra dark fallback layer (important) */}
+      <div className="absolute inset-0 bg-black/30 z-[1]" aria-hidden="true" />
 
       {/* Subtle grid pattern */}
       <div
@@ -57,7 +91,6 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          {/* H1 (LCP optimized - fast render) */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,7 +99,7 @@ const Hero = () => {
           >
             Empowering Professions with skills and{" "}
             <span className="text-gradient-gold">
-              confidence to accelerate performance..
+              confidence to accelerate performance.
             </span>
           </motion.h1>
 
@@ -78,7 +111,7 @@ const Hero = () => {
           >
             We improve productivity, reduce rejection, and build
             high-performance teams through structured capability development
-            programs
+            programs.
           </motion.p>
 
           <motion.div
@@ -116,32 +149,6 @@ const Hero = () => {
             </a>
           </motion.div>
         </div>
-
-        {/* Stats bar
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/20 pt-10"
-          role="list"
-          aria-label="Core Hexis key statistics"
-        >
-          {[
-            { value: "8+", label: "Industry Domains" },
-            { value: "50+", label: "Training Programs" },
-            { value: "100+", label: "Industry Experts" },
-            { value: "500+", label: "Professionals Trained" },
-          ].map((stat) => (
-            <div key={stat.label} role="listitem">
-              <div className="text-3xl md:text-4xl font-bold text-gradient-gold font-display">
-                {stat.value}
-              </div>
-              <div className="text-sm text-white/60 mt-1 font-body">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div> */}
       </div>
     </section>
   );
