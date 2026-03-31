@@ -59,7 +59,12 @@ const CoreOfferings = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="offerings" className="py-24 bg-background" ref={ref} aria-label="Core Hexis capability development services">
+    <section
+      id="offerings"
+      className="py-24 bg-background"
+      ref={ref}
+      aria-label="Core Hexis capability development services"
+    >
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,7 +84,11 @@ const CoreOfferings = () => {
           </p>
         </motion.div>
 
-        <div className="flex flex-col gap-4" role="list" aria-label="Training services offered by Core Hexis">
+        <div
+          className="flex flex-col gap-4"
+          role="list"
+          aria-label="Training services offered by Core Hexis"
+        >
           {offerings.map((item, i) => (
             <motion.article
               key={item.title}
@@ -89,13 +98,15 @@ const CoreOfferings = () => {
               className="group flex items-center gap-5 p-5 md:p-6 rounded-xl bg-background border border-border hover:border-gold/30 hover:shadow-elevated transition-all duration-300"
               role="listitem"
             >
-              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors" aria-hidden="true">
+              <div
+                className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors"
+                aria-hidden="true"
+              >
                 <item.icon size={22} className="text-gold" />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-base md:text-lg font-semibold text-foreground font-body">
                   {item.title}
-                  <span className="ml-2 text-xs font-medium text-gold/70">({item.abbr})</span>
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-body mt-1">
                   {item.description}
