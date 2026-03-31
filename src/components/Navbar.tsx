@@ -8,7 +8,8 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Capabilities", href: "#offerings" },
   { label: "Programs", href: "#programs" },
-  { label: "Consulting", href: "#approach" },
+  { label: "Methodology", href: "#approach" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -116,7 +117,7 @@ const Navbar = () => {
                     isActive
                       ? scrolled
                         ? "text-gold border-b-2 border-gold"
-                        : "text-gold border-b-2 border-gold"
+                        : "text-black border-b-2 border-black"
                       : scrolled
                         ? "text-primary-foreground/70 hover:text-gold-light"
                         : "text-muted-foreground hover:text-foreground"

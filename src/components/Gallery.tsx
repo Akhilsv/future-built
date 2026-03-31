@@ -90,6 +90,7 @@ const Gallery = () => {
   return (
     <section
       ref={sectionRef}
+      id="gallery"
       className="py-20 bg-background"
       aria-label="Gallery"
     >
