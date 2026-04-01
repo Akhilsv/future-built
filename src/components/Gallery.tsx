@@ -30,8 +30,8 @@ const images = [
 
 const stackConfig = [
   { zIndex: 30, translate: "translate(0, 0)", rotate: "rotate(0deg)", scale: 1, opacity: 1 },
-  { zIndex: 20, translate: "translate(12px, 8px)", rotate: "rotate(2.5deg)", scale: 0.97, opacity: 0.6 },
-  { zIndex: 10, translate: "translate(24px, 16px)", rotate: "rotate(-1.8deg)", scale: 0.94, opacity: 0.35 },
+  { zIndex: 20, translate: "translate(20px, 14px)", rotate: "rotate(3deg)", scale: 0.96, opacity: 0.7 },
+  { zIndex: 10, translate: "translate(40px, 28px)", rotate: "rotate(-2.5deg)", scale: 0.92, opacity: 0.45 },
 ];
 
 const stackConfigMobile = [
