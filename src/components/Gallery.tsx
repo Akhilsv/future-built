@@ -95,42 +95,47 @@ const Gallery = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex justify-center"
+            className="flex flex-col items-center"
           >
-            <button
-              onClick={() => setIsOpen(true)}
-              className="relative cursor-pointer group w-full max-w-lg aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-2xl"
-              aria-label="Open gallery carousel"
-            >
-              {images.slice(0, 3).reverse().map((img, reverseIdx) => {
-                const idx = 2 - reverseIdx;
-                return (
-                  <div
-                    key={idx}
-                    className={`absolute inset-0 rounded-2xl overflow-hidden transition-all duration-500 ease-out group-hover:translate-y-[-6px] ${idx === 0 ? "shadow-2xl ring-1 ring-gold/10" : "shadow-xl"}`}
-                    style={{
-                      zIndex: stackConfig[idx].zIndex,
-                      transform: `${stackConfig[idx].translate} ${stackConfig[idx].rotate} scale(${stackConfig[idx].scale})`,
-                      opacity: stackConfig[idx].opacity,
-                    }}
-                  >
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      loading={idx === 0 ? "eager" : "lazy"}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                );
-              })}
-              {/* Click hint */}
-              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-40 bg-background/90 backdrop-blur-md text-foreground text-xs font-semibold px-5 py-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-gold/20">
-                Click to explore
-              </div>
-            </button>
+            <div className="relative w-full max-w-xl aspect-[4/3] mb-8">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="absolute inset-0 cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-2xl"
+                aria-label="Open gallery carousel"
+              >
+                {images.slice(0, 3).reverse().map((img, reverseIdx) => {
+                  const idx = 2 - reverseIdx;
+                  return (
+                    <div
+                      key={idx}
+                      className={`absolute inset-0 rounded-2xl overflow-hidden transition-all duration-500 ease-out group-hover:translate-y-[-6px] ${idx === 0 ? "shadow-2xl ring-1 ring-gold/10" : "shadow-xl border border-border/30"}`}
+                      style={{
+                        zIndex: stackConfig[idx].zIndex,
+                        transform: `${stackConfig[idx].translate} ${stackConfig[idx].rotate} scale(${stackConfig[idx].scale})`,
+                        opacity: stackConfig[idx].opacity,
+                      }}
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        loading={idx === 0 ? "eager" : "lazy"}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  );
+                })}
+                {/* Click hint */}
+                <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-40 bg-background/90 backdrop-blur-md text-foreground text-xs font-semibold px-5 py-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-gold/20">
+                  Click to explore
+                </div>
+              </button>
+            </div>
             {/* Caption */}
-            <p className="text-center mt-6 text-sm md:text-base text-muted-foreground font-body leading-relaxed">
-              Corporate Training Programs – On Furniture Design Module @ Presidency University
+            <p className="text-center text-base md:text-lg font-display font-semibold text-foreground tracking-wide">
+              Corporate Training Programs
+            </p>
+            <p className="text-center text-sm md:text-base text-gold font-body italic mt-1">
+              On Furniture Design Module @ Presidency University
             </p>
           </motion.div>
         )}
