@@ -107,7 +107,7 @@ const Gallery = () => {
                 return (
                   <div
                     key={idx}
-                    className="absolute inset-0 rounded-2xl overflow-hidden shadow-lg transition-transform duration-500 ease-out group-hover:translate-y-[-4px]"
+                    className={`absolute inset-0 rounded-2xl overflow-hidden transition-all duration-500 ease-out group-hover:translate-y-[-6px] ${idx === 0 ? "shadow-2xl ring-1 ring-gold/10" : "shadow-xl"}`}
                     style={{
                       zIndex: stackConfig[idx].zIndex,
                       transform: `${stackConfig[idx].translate} ${stackConfig[idx].rotate} scale(${stackConfig[idx].scale})`,
