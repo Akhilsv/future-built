@@ -46,7 +46,7 @@ const Index = () => {
 
           {/* <TrustSection /> */}
           <Gallery />
-          <CtaSection />
+          {/* <CtaSection /> */}
           <Contact />
         </main>
         <Footer />

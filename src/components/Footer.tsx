@@ -19,7 +19,7 @@ const programLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-navy-dark py-16" role="contentinfo">
+    <footer className="bg-navy-dark py-8" role="contentinfo">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <nav aria-label="Footer quick links">
+          <nav aria-label="Footer quick links" className="lg:col-start-4">
             <h3 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
               Quick Links
             </h3>
@@ -58,7 +58,7 @@ const Footer = () => {
           </nav>
 
           {/* Programs */}
-          <nav aria-label="Footer program links">
+          {/* <nav aria-label="Footer program links">
             <h3 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
               Programs
             </h3>
@@ -71,10 +71,10 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </nav>
+          </nav> */}
 
           {/* Contact */}
-          <div>
+          {/* <div>
             <h3 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-4 font-body">
               Contact
             </h3>
@@ -84,7 +84,7 @@ const Footer = () => {
               <p>Vijayanagara, Bangalore 560040</p>
               <p>www.corehexis.com</p>
             </address>
-          </div>
+          </div> */}
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
