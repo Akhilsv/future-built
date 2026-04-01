@@ -124,10 +124,14 @@ const Gallery = () => {
                 );
               })}
               {/* Click hint */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-40 bg-background/80 backdrop-blur-sm text-foreground text-xs font-medium px-4 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-40 bg-background/90 backdrop-blur-md text-foreground text-xs font-semibold px-5 py-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-gold/20">
                 Click to explore
               </div>
             </button>
+            {/* Caption */}
+            <p className="text-center mt-6 text-sm md:text-base text-muted-foreground font-body leading-relaxed">
+              Corporate Training Programs – On Furniture Design Module @ Presidency University
+            </p>
           </motion.div>
         )}
 
