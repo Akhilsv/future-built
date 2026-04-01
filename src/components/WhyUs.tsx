@@ -55,7 +55,7 @@ const WhyUs = () => {
           className="text-center mb-16"
         >
           <p className="text-sm uppercase tracking-[0.2em] text-gold font-semibold mb-4 font-body">
-            Why Us
+            Why Core Hexis
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
             What Sets Us Apart

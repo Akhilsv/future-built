@@ -85,7 +85,7 @@ const CoreOfferings = () => {
         </motion.div>
 
         <div
-          className="flex flex-col gap-4"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
           role="list"
           aria-label="Training services offered by Core Hexis"
         >
