@@ -44,7 +44,7 @@ const Hero = () => {
             className="absolute inset-0"
             style={{
               backgroundImage: `
-                linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.15)),
+                linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.15) 70%, rgba(0,0,0,0.05) 100%),
                 url(${backgrounds[currentBg]})
               `,
               backgroundSize: "cover",
