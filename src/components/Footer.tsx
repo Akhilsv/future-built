@@ -19,9 +19,9 @@ const programLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-navy-dark py-8" role="contentinfo">
+    <footer className="bg-navy-dark py-4" role="contentinfo">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-6">
           {/* Brand */}
           <div className="lg:col-span-1">
             <img
@@ -87,7 +87,7 @@ const Footer = () => {
           </div> */}
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-primary-foreground/10 pt-4 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-sm text-primary-foreground/40 font-body">
             © {new Date().getFullYear()} Core Hexis. All rights reserved.
           </p>
