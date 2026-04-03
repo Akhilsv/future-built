@@ -75,7 +75,7 @@ const Hero = () => {
       />
 
       <div className="container mx-auto px-6 lg:px-12 pt-32 pb-20 relative z-30">
-        <div className="max-w-4xl">
+        <div className="max-w-[50%]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-8"
+            className="font-display text-3xl md:text-[2.75rem] lg:text-[3.5rem] font-bold text-white leading-[1.1] mb-8"
           >
             Empowering Professions with skills and{" "}
             <span className="text-gradient-gold">
