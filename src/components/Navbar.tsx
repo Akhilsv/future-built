@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Capabilities", href: "#offerings" },
   { label: "Programs", href: "#programs" },
   { label: "Methodology", href: "#approach" },
+  { label: "Our Works", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
 
