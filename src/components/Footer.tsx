@@ -87,7 +87,7 @@ const Footer = () => {
           </div> */}
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-primary-foreground/10 pt-4 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-sm text-primary-foreground/40 font-body">
             © {new Date().getFullYear()} Core Hexis. All rights reserved.
           </p>
