@@ -44,7 +44,7 @@ const Hero = () => {
             className="absolute inset-0"
             style={{
               backgroundImage: `
-                linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.15)),
+                linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.15) 70%, rgba(0,0,0,0.05) 100%),
                 url(${backgrounds[currentBg]})
               `,
               backgroundSize: "cover",
@@ -56,7 +56,7 @@ const Hero = () => {
       </div>
 
       {/* Extra dark fallback layer (important) */}
-      <div className="absolute inset-0 bg-black/15 z-[1]" aria-hidden="true" />
+      <div className="absolute inset-0 z-[1]" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.1) 50%, transparent 60%)' }} aria-hidden="true" />
 
       {/* Subtle grid pattern */}
       <div
