@@ -56,7 +56,7 @@ const Hero = () => {
       </div>
 
       {/* Extra dark fallback layer (important) */}
-      <div className="absolute inset-0 bg-black/30 z-[1]" aria-hidden="true" />
+      <div className="absolute inset-0 bg-black/15 z-[1]" aria-hidden="true" />
 
       {/* Subtle grid pattern */}
       <div
