@@ -1,16 +1,72 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [submitted, setSubmitted] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [isSending, setIsSending] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [errorVisible, setErrorVisible] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    // Map id to formData keys
+    const fieldMap: Record<string, string> = {
+      "contact-name": "name",
+      "contact-email": "email",
+      "contact-phone": "phone",
+      "contact-message": "message",
+    };
+
+    setFormData((prev) => ({
+      ...prev,
+      [fieldMap[id]]: value,
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setIsSending(true);
+    setErrorVisible(false);
+    setShowSuccess(false);
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      from_phone: formData.phone,
+      message: formData.message,
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setShowSuccess(true);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        toast.success("Message sent successfully!");
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
+        setErrorVisible(true);
+        toast.error("Failed to send message. Please try again.");
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
   return (
@@ -51,9 +107,6 @@ const Contact = () => {
                 <Phone size={20} className="text-gold" />
               </div>
               <div>
-                {/* <h3 className="font-semibold text-foreground mb-1 font-body">
-                  Phone
-                </h3> */}
                 <a
                   href="tel:+919980631642"
                   className="font-semibold  hover:text-gold transition-colors font-body"
@@ -71,15 +124,12 @@ const Contact = () => {
                 <Mail size={20} className="text-gold" />
               </div>
               <div>
-                {/* <h3 className="font-semibold text-foreground mb-1 font-body">
-                  Email
-                </h3> */}
                 <a
                   href="mailto:info@corehexis.com"
                   className="font-semibold hover:text-gold transition-colors font-body"
                   aria-label="Email Core Hexis at info@corehexis.com"
                 >
-                  info@corehexis.com
+                  dattatreya@corehexis.com
                 </a>
               </div>
             </div>
@@ -92,15 +142,11 @@ const Contact = () => {
               </div>
 
               <div>
-                {/* <h3 className="font-semibold text-foreground mb-1 font-body">
-                  Address
-                </h3> */}
-
-                <a className="font-semibold  font-body mb-3">
+                <p className="font-semibold font-body mb-3">
                   #45, 1st Main, 1st Cross, M.H Circle,
                   <br />
                   Vijayanagara – Bangalore 560040
-                </a>
+                </p>
               </div>
             </div>
           </motion.address>
@@ -129,9 +175,12 @@ const Contact = () => {
                     id="contact-name"
                     type="text"
                     required
+                    value={formData.name}
+                    onChange={handleChange}
                     autoComplete="name"
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-all font-body text-sm"
                     placeholder="John Doe"
+                    disabled={isSending}
                   />
                 </div>
                 <div>
@@ -145,9 +194,12 @@ const Contact = () => {
                     id="contact-email"
                     type="email"
                     required
+                    value={formData.email}
+                    onChange={handleChange}
                     autoComplete="email"
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-all font-body text-sm"
                     placeholder="john@company.com"
+                    disabled={isSending}
                   />
                 </div>
               </div>
@@ -161,9 +213,13 @@ const Contact = () => {
                 <input
                   id="contact-phone"
                   type="tel"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
                   autoComplete="tel"
                   className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-all font-body text-sm"
                   placeholder="Enter your phone number"
+                  disabled={isSending}
                 />
               </div>
               <div>
@@ -177,30 +233,38 @@ const Contact = () => {
                   id="contact-message"
                   rows={4}
                   required
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-all font-body text-sm resize-none"
                   placeholder="Tell us about your training needs..."
+                  disabled={isSending}
                 />
               </div>
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 w-full px-8 py-3.5 rounded-lg bg-gradient-gold text-secondary-foreground font-semibold hover:brightness-110 transition-all shadow-gold font-body"
+                disabled={isSending}
+                className="inline-flex items-center justify-center gap-2 w-full px-8 py-3.5 rounded-lg bg-gradient-gold text-secondary-foreground font-semibold hover:brightness-110 transition-all shadow-gold font-body disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {submitted ? (
+                {isSending ? (
+                  "Sending..."
+                ) : showSuccess ? (
                   "Message Sent ✓"
                 ) : (
                   <>
                     <Send size={18} aria-hidden="true" />
-
-                    {/* Mobile */}
                     <span className="sm:hidden">Send Message</span>
-
-                    {/* Desktop */}
                     <span className="hidden sm:inline">
                       Send Message | Let's Start a Conversation
                     </span>
                   </>
                 )}
               </button>
+
+              {errorVisible && (
+                <p className="text-destructive text-sm text-center mt-2 font-body">
+                  Something went wrong. Please try again or contact us directly.
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
@@ -210,3 +274,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
