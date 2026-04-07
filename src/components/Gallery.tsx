@@ -9,11 +9,11 @@ import gallery2 from "@/assets/gallery-2.jpeg";
 import gallery3 from "@/assets/gallery-3.jpeg";
 import gallery4 from "@/assets/gallery-4.jpeg";
 import gallery5 from "@/assets/gallery-5.jpeg";
-import gallery6 from "@/assets/gallery-6.jpeg";
-import gallery7 from "@/assets/gallery-7.jpeg";
-import gallery8 from "@/assets/gallery-8.jpeg";
-import gallery9 from "@/assets/gallery-9.jpeg";
-import gallery10 from "@/assets/gallery-10.jpeg";
+// import gallery6 from "@/assets/gallery-6.jpeg";
+// import gallery7 from "@/assets/gallery-7.jpeg";
+// import gallery8 from "@/assets/gallery-8.jpeg";
+// import gallery9 from "@/assets/gallery-9.jpeg";
+// import gallery10 from "@/assets/gallery-10.jpeg";
 
 const images = [
   {
@@ -36,26 +36,26 @@ const images = [
     src: gallery5,
     alt: "Student presenting product design prototype at Core Hexis exhibition",
   },
-  {
-    src: gallery6,
-    alt: "Industry expert evaluating student project at Core Hexis event",
-  },
-  {
-    src: gallery7,
-    alt: "Students participating in Core Hexis capability development program",
-  },
-  {
-    src: gallery8,
-    alt: "Industry mentors discussing innovation at Core Hexis workshop",
-  },
-  {
-    src: gallery9,
-    alt: "Core Hexis team demonstrating product prototype to industry leaders",
-  },
-  {
-    src: gallery10,
-    alt: "Industry professionals networking at Core Hexis training event",
-  },
+  // {
+  //   src: gallery6,
+  //   alt: "Industry expert evaluating student project at Core Hexis event",
+  // },
+  // {
+  //   src: gallery7,
+  //   alt: "Students participating in Core Hexis capability development program",
+  // },
+  // {
+  //   src: gallery8,
+  //   alt: "Industry mentors discussing innovation at Core Hexis workshop",
+  // },
+  // {
+  //   src: gallery9,
+  //   alt: "Core Hexis team demonstrating product prototype to industry leaders",
+  // },
+  // {
+  //   src: gallery10,
+  //   alt: "Industry professionals networking at Core Hexis training event",
+  // },
 ];
 
 const stackConfig = [
@@ -299,7 +299,10 @@ const Gallery = () => {
           onClick={() => setLightboxIndex(null)}
         >
           <button
-            onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(null);
+            }}
             className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-background/90 flex items-center justify-center text-foreground hover:bg-gold hover:text-primary-foreground transition-colors"
             aria-label="Close lightbox"
           >
@@ -316,14 +319,22 @@ const Gallery = () => {
             onClick={(e) => e.stopPropagation()}
           />
           <button
-            onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + images.length) % images.length); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(
+                (lightboxIndex - 1 + images.length) % images.length,
+              );
+            }}
             className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 flex items-center justify-center text-foreground hover:bg-gold hover:text-primary-foreground transition-colors"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
-            onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % images.length); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((lightboxIndex + 1) % images.length);
+            }}
             className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 flex items-center justify-center text-foreground hover:bg-gold hover:text-primary-foreground transition-colors"
             aria-label="Next image"
           >
