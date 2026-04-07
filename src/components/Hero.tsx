@@ -74,8 +74,8 @@ const Hero = () => {
         aria-hidden="true"
       />
 
-      <div className="container mx-auto px-6 lg:px-12 pt-32 pb-20 relative z-30">
-        <div className="max-w-full lg:max-w-[60%]">
+      <div className="container mx-auto px-6 lg:px-12 pt-32 pb-20 relative z-30 flex justify-start">
+        <div className="w-full lg:w-[60%] lg:mr-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
