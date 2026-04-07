@@ -2,11 +2,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import bg1 from "@/assets/students.jpeg";
-import bg2 from "@/assets/seminar.jpeg";
-import bg3 from "@/assets/meeting.jpeg";
+import bg1 from "@/assets/1.png";
+import bg2 from "@/assets/2.png";
+import bg3 from "@/assets/3.png";
+import bg4 from "@/assets/4.png";
+import bg5 from "@/assets/5.png";
+import bg6 from "@/assets/6.png";
+import bg7 from "@/assets/7.png";
 
-const backgrounds = [bg1, bg2, bg3];
+const backgrounds = [bg1, bg2, bg3, bg4, bg5, bg6, bg7];
 
 const Hero = () => {
   const [currentBg, setCurrentBg] = useState(0);
@@ -56,7 +60,14 @@ const Hero = () => {
       </div>
 
       {/* Extra dark fallback layer (important) */}
-      <div className="absolute inset-0 z-[1]" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.1) 50%, transparent 60%)' }} aria-hidden="true" />
+      <div
+        className="absolute inset-0 z-[1]"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.1) 50%, transparent 60%)",
+        }}
+        aria-hidden="true"
+      />
 
       {/* Subtle grid pattern */}
       <div
