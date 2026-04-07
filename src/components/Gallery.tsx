@@ -288,6 +288,49 @@ const Gallery = () => {
           </motion.div>
         )}
       </div>
+
+      {/* Lightbox Modal */}
+      {lightboxIndex !== null && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-sm"
+          onClick={() => setLightboxIndex(null)}
+        >
+          <button
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+            className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-background/90 flex items-center justify-center text-foreground hover:bg-gold hover:text-primary-foreground transition-colors"
+            aria-label="Close lightbox"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <motion.img
+            key={lightboxIndex}
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            src={images[lightboxIndex].src}
+            alt={images[lightboxIndex].alt}
+            className="max-w-[90vw] max-h-[85vh] object-contain rounded-2xl shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + images.length) % images.length); }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 flex items-center justify-center text-foreground hover:bg-gold hover:text-primary-foreground transition-colors"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % images.length); }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 flex items-center justify-center text-foreground hover:bg-gold hover:text-primary-foreground transition-colors"
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </motion.div>
+      )}
     </section>
   );
 };
