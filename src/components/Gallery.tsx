@@ -241,7 +241,10 @@ const Gallery = () => {
                     key={i}
                     className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 first:pl-0"
                   >
-                    <div className="relative overflow-hidden rounded-xl aspect-[4/3] group/card">
+                    <button
+                      onClick={() => setLightboxIndex(i)}
+                      className="relative overflow-hidden rounded-xl aspect-[4/3] group/card w-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    >
                       <img
                         src={img.src}
                         alt={img.alt}
@@ -251,7 +254,7 @@ const Gallery = () => {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105"
                       />
                       <div className="absolute inset-0 bg-navy-dark/0 group-hover/card:bg-navy-dark/20 transition-colors duration-500" />
-                    </div>
+                    </button>
                   </div>
                 ))}
               </div>
