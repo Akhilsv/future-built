@@ -5,12 +5,11 @@ import { useEffect, useState } from "react";
 import bg1 from "@/assets/1.png";
 import bg2 from "@/assets/2.png";
 import bg3 from "@/assets/3.png";
-import bg4 from "@/assets/4.png";
+import bg4 from "@/assets/4.jpeg";
 import bg5 from "@/assets/5.png";
 import bg6 from "@/assets/6.png";
-import bg7 from "@/assets/7.png";
 
-const backgrounds = [bg1, bg2, bg3, bg4, bg5, bg6, bg7];
+const backgrounds = [bg1, bg2, bg3, bg4, bg5, bg6];
 
 const Hero = () => {
   const [currentBg, setCurrentBg] = useState(0);
