@@ -50,6 +50,7 @@ const Contact = () => {
       from_email: formData.email,
       from_phone: formData.phone,
       message: formData.message,
+      reply_to: formData.email,
     };
 
     emailjs.send(serviceId, templateId, templateParams, publicKey)

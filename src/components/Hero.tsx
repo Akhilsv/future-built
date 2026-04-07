@@ -84,8 +84,8 @@ const Hero = () => {
         aria-hidden="true"
       />
 
-      <div className="container mx-auto px-6 lg:px-12 pt-32 pb-20 relative z-30 flex justify-start">
-        <div className="w-full lg:w-[60%] lg:mr-auto">
+      <div className="w-full px-6 lg:px-12 pt-32 pb-20 relative z-30">
+        <div className="max-w-full lg:max-w-[1000px] xl:max-w-[1200px]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-display text-3xl md:text-[2.75rem] lg:text-[3.5rem] font-bold text-white leading-[1.1] mb-8"
+            className="font-display text-[clamp(2rem,7vw,4.5rem)] font-bold text-white leading-[1.1] mb-8"
           >
             Empowering Professions with skills and{" "}
             <span className="text-gradient-gold">
@@ -117,7 +117,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 max-w-2xl mb-12 leading-relaxed font-body"
+            className="text-[clamp(1.125rem,1.5vw,1.375rem)] text-white/80 max-w-2xl mb-12 leading-relaxed font-body"
           >
             We improve productivity, reduce rejection, and build
             high-performance teams through structured capability development
