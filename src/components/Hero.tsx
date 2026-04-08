@@ -5,9 +5,8 @@ import { useEffect, useState } from "react";
 import bg2 from "@/assets/2.png";
 import bg3 from "@/assets/3.png";
 import bg5 from "@/assets/5.png";
-import bg6 from "@/assets/6.png";
 
-const backgrounds = [bg2, bg3, bg5, bg6];
+const backgrounds = [bg2, bg3, bg5];
 
 const Hero = () => {
   const [currentBg, setCurrentBg] = useState(0);
