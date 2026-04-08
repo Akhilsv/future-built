@@ -26,7 +26,7 @@ const About = () => {
             <img
               src={teamImg}
               alt="Core Hexis industry training team conducting a capability development workshop"
-              className="rounded-2xl shadow-elevated w-full object-cover aspect-[4/3]"
+              className="rounded-2xl shadow-elevated w-full object-contain aspect-[4/3]"
               loading="lazy"
               width={600}
               height={450}

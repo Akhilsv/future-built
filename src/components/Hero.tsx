@@ -2,13 +2,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import bg1 from "@/assets/1.png";
 import bg2 from "@/assets/2.png";
 import bg3 from "@/assets/3.png";
 import bg5 from "@/assets/5.png";
 import bg6 from "@/assets/6.png";
 
-const backgrounds = [bg1, bg2, bg3, bg5, bg6];
+const backgrounds = [bg2, bg3, bg5, bg6];
 
 const Hero = () => {
   const [currentBg, setCurrentBg] = useState(0);
@@ -50,7 +49,7 @@ const Hero = () => {
                 url(${backgrounds[currentBg]})
               `,
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "right center",
               backgroundRepeat: "no-repeat",
             }}
           />
@@ -84,7 +83,7 @@ const Hero = () => {
       />
 
       <div className="w-full px-6 lg:px-12 pt-32 pb-20 relative z-30">
-        <div className="max-w-full lg:max-w-[1000px] xl:max-w-[1200px]">
+        <div className="w-full lg:w-[75%]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,7 +103,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-display text-[clamp(2rem,7vw,4.5rem)] font-bold text-white leading-[1.1] mb-8"
+            className="font-display text-[clamp(2rem,7vw,3.5rem)] font-bold text-white leading-[1.1] mb-8"
           >
             Empowering Professions with skills and{" "}
             <span className="text-gradient-gold">

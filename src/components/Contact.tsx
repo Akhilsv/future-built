@@ -19,7 +19,9 @@ const Contact = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [errorVisible, setErrorVisible] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { id, value } = e.target;
     // Map id to formData keys
     const fieldMap: Record<string, string> = {
@@ -53,15 +55,16 @@ const Contact = () => {
       reply_to: formData.email,
     };
 
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
+    emailjs
+      .send(serviceId, templateId, templateParams, publicKey)
       .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
+        console.log("SUCCESS!", response.status, response.text);
         setShowSuccess(true);
         setFormData({ name: "", email: "", phone: "", message: "" });
         toast.success("Message sent successfully!");
       })
       .catch((err) => {
-        console.error('FAILED...', err);
+        console.error("FAILED...", err);
         setErrorVisible(true);
         toast.error("Failed to send message. Please try again.");
       })
@@ -126,9 +129,9 @@ const Contact = () => {
               </div>
               <div>
                 <a
-                  href="mailto:info@corehexis.com"
+                  href="mailto:dattatreya@corehexis.com"
                   className="font-semibold hover:text-gold transition-colors font-body"
-                  aria-label="Email Core Hexis at info@corehexis.com"
+                  aria-label="Email Core Hexis at dattatreya@corehexis.com"
                 >
                   dattatreya@corehexis.com
                 </a>
@@ -275,4 +278,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
