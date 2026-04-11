@@ -17,7 +17,8 @@ const domains = [
   {
     icon: Wrench,
     title: "Mechanical Engineering",
-    summary: "CNC, Lean Manufacturing, Six Sigma, GD&T, FEA, Industry 4.0",
+    summary:
+      "Material selection and injection moulding& design, plastic & sheet metal design and technology, and Press Tool design - manufacturing processes",
   },
   {
     icon: Zap,
